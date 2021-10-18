@@ -1,0 +1,53 @@
+<section class="body_form">
+  <div class="body_form_content">
+    <div class="modal d-block position-relative">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center align-items-center"
+            style="background-image: url(./assets/img/enquiry-02.jpg); min-height: 130px;">
+            <h2 class="modal-title text-white">Calculator</h2>
+          </div>
+          <div class="modal-body">
+            <form #calcForm="ngForm">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="Name"><i class="fa fa-edit"></i></span>
+                </div>
+                <input type="number" class="form-control" placeholder="Enter First Number" minlength="1"
+                  name="calcData.calcFirstInput" [(ngModel)]="calcData.calcFirstInput"
+                  #calcData.calcFirstInput="ngModel" autocomplete="off" maxlength="5">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="Name"><i class="fa fa-edit"></i></span>
+                </div>
+                <input type="number" class="form-control" placeholder="Enter Second Number" minlength="1"
+                  name="calcData.calcSecondInput" [(ngModel)]="calcData.calcSecondInput"
+                  #calcData.calcSecondInput="ngModel" autocomplete="off" maxlength="5">
+              </div>
+              <div class="text-center mb-2">
+                <button class="btn btn-primary mr-2" type="button" (click)="showResult('+')">Add</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="showResult('-')">Sub</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="showResult('*')">Mul</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="showResult('/')">Div</button>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-danger mr-2" type="button" [disabled]="calcForm.invalid"
+                  (click)="clearInput()">Clear</button>
+              </div>
+              <div class="input-group mt-3" *ngIf="showResultFlag">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="Name">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result :
+                  </span>
+                </div>
+                <input type="text" class="form-control" name="calcData.result" [(ngModel)]="calcData.result"
+                  disabled=true #calcData.result="ngModel">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
